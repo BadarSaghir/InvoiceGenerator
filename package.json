@@ -1,8 +1,37 @@
 {
   "name": "invoice-generator",
   "version": "0.1.0",
+  "description": "Application for genrating invoice",
+  "author": "Badar badardani11@gmail.com",
+  "build": {
+    "appId": "com.invoice.maker",
+    "extends": null,
+    "productName": "invoice",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "icon": "./public/favicon.ico",
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target":"nsis",
+      "icon": "./build/favicon.ico"
+    },
+    "linux": {
+      "target":["snap","AppImage"],
+      "category":"Utils",
+      "maintainer":"badar",
+      "icon": "./build/favicon.ico"
+    },
+    "files": [
+      "./build/**/*",
+      "./public/main.js"
+    ],
+    "directories": {
+      "buildResources": "public"
+    }
+  },
   "private": true,
-  "main": "electron/main.js",
+  "main": "./public/main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -27,39 +56,12 @@
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
     "pack:osx": "electron-packager . $npm_package_productName --out=dist/osx --platform=darwin --arch=x64 --icon=assets/build/osx/icon.icns && npm run codesign",
-"pack:win32": "electron-packager . $npm_package_productName --out=dist/win --platform=win32 --prune=true --arch=ia32 --icon=./build/favicon.ico",
-"pack:win64": "electron-packager . $npm_package_productName --out=dist/win --platform=win32 --prune=true--arch=x64 --version=0.36.2 app-version=1.0 --icon=--icon=./build/favicon.ico",
-"build_app": "npm run pack:win32 && npm run pack:win64",
+    "pack:win32": "electron-packager . $npm_package_productName --out=dist/win --platform=win32 --prune=true --arch=ia32 --icon=./build/favicon.ico",
+    "pack:win64": "electron-packager . $npm_package_productName --out=dist/win --platform=win32 --prune=true--arch=x64 --version=0.36.2 app-version=1.0 --icon=--icon=./build/favicon.ico",
+    "build_app": "npm run pack:win32 && npm run pack:win64",
     "electron": "wait-on tcp:3000 && electron ."
   },
-  "build": {
-    "appId": "com.invoice.maker",
-    "dir": "./build",
-    "target": "invoice",
-    "productName": "invoice",
-    "copyright": "Copyright © 2019 ${author}",
-    "mac": {
-      "icon": "./public/favicon.ico" ,
-      "category": "public.app-category.utilities"
-    },
-    "win": {
-      "icon": "./public/favicon.ico" 
-    },
-    "linux": {
-      "icon": "./public/favicon.ico" 
-    },
-    
-    "files": [
-      "./build/**/*",
-      "./dist/**/*",
-      "./public/**/*"   
-     
-    ],
-    "directories": {
-      "buildResources": "public" 
-    }
-  },
-  
+ 
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -81,6 +83,7 @@
   "devDependencies": {
     "concurrently": "^7.3.0",
     "electron": "^20.0.2",
+    "electron-builder": "^23.3.3",
     "electron-package": "^0.1.0",
     "wait-on": "^6.0.1"
   }
