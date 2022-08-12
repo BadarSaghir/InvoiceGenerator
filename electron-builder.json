@@ -1,0 +1,23 @@
+{
+    "appId": "com.invoice.maker",
+    "productName": "Invoic Generator",
+    "copyright": "MIT",
+    "directories": {
+        "app": ".",
+        "output": "out",
+        "buildResources": "build-res"
+    },
+    "files": [
+        "package.json",
+        "**/*",
+        "node_modules"
+    ],
+    
+    "win": {
+        "target": "nsis"
+    },
+    "linux": {
+        "target": "AppImage",
+        "category": "Utility"
+    }
+}

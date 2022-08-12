@@ -5,7 +5,7 @@
   "author": "Badar badardani11@gmail.com",
   
   "private": true,
-  "main": "./public/main.js",
+  "main": "public/main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
