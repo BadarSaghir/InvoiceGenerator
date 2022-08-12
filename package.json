@@ -8,27 +8,21 @@
     "extends": null,
     "productName": "invoice",
     "copyright": "Copyright © 2019 ${author}",
-    "mac": {
-      "icon": "./public/favicon.ico",
-      "category": "public.app-category.utilities"
-    },
+  
     "win": {
-      "target":"nsis",
-      "icon": "./build/favicon.ico"
+      "target":"nsis"
     },
     "linux": {
       "target":["snap","AppImage"],
       "category":"Utils",
-      "maintainer":"badar",
-      "icon": "./build/favicon.ico"
+      "maintainer":"badar"
+     
     },
     "files": [
       "./build/**/*",
       "./public/main.js"
-    ],
-    "directories": {
-      "buildResources": "public"
-    }
+    ]
+   
   },
   "private": true,
   "main": "./public/main.js",
